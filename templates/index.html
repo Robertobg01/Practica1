@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>aplicacion flask</title>
+</head>
+<body>
+<h1>uso de API chatGPT con Flask y Jinja2</h1>
+<form action="/" method="POST">
+    <hr>
+    <textarea name="chat" disabled rows="10" cols="120">
+        {% for peticion in historial %}
+            {{ peticion[0] }}: {{ peticion[1] }}{% if not loop.last %}\n{% endif %}
+            {% endfor %}
+    </textarea>
+    <p>
+        ¿Cual es tu pregunta?
+        <input type="text" name="pregunta" value="{{ pregunta }}" size="100" >
+        <button type="submit">Enviar</button>
+    </p>
+</form>
+</body>
+</html>
